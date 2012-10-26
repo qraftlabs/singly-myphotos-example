@@ -13,7 +13,7 @@ namespace SinglySamplePhotos.Controllers
 
         public ActionResult Index(string search = "")
         {
-            var context = new Singly.SinglyContext();
+            var context = new Singly.SinglyContext(new Uri("http://odata-singly.azurewebsites.net/types"));
             var photos = context.Photos
                                 .Where(photo => photo.Data.Contains(search) && photo.Date < DateTime.Now.AddDays(-2)) 
                                 .Take(10).ToList();
