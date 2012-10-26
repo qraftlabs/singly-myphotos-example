@@ -1,0 +1,2 @@
+singly-myphotos-example
+=======================
