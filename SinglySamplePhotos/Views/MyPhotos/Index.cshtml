@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SinglySamplePhotos.Singly.Photo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            Provider
+        </th>
+        <th>
+            Source
+        </th>
+        <th>
+            Photo
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oembed.ProviderName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oembed.SourceName)
+        </td>
+        <td>
+            <img src="@item.Oembed.Url" style="width: 100px; height: 100px;"/>
+        </td>
+    </tr>
+}
+
+</table>
